@@ -6,21 +6,25 @@ from snownlp import SnowNLP
 import pandas as pd
 from openai import OpenAI
 
-# ---------------------- 配置（不用动） ----------------------
-#我用的是serpapi
-client = Client(api_key="key")
-output_csv = "/Users/bryanchan/Documents/CITI case comp/油价预测模型/花旗杯/油价分析数据.csv"
+# ---------------------- 配置（需替换为自身实际信息） ----------------------
+# SerpAPI配置
+client = Client(api_key="SERPAPI_API_KEY_PLACEHOLDER")  # 替换为自己的SerpAPI密钥
+# 输出文件路径（替换为自身实际路径）
+output_csv = "{YOUR_BASE_DIR}/CITI_case_comp/oil_price_model/citi_cup/油价分析数据.csv"
+# 趋势文件路径列表（替换为自身实际路径）
 trends_file_list = [
-    "/Users/bryanchan/Documents/CITI case comp/油价预测模型/花旗杯/trend（oil price）.csv",
-    "/Users/bryanchan/Documents/CITI case comp/油价预测模型/花旗杯/trend(OPEC).csv"
+    "{YOUR_BASE_DIR}/CITI_case_comp/oil_price_model/citi_cup/trend（oil price）.csv",
+    "{YOUR_BASE_DIR}/CITI_case_comp/oil_price_model/citi_cup/trend(OPEC).csv"
 ]
-vix_path = "/Users/bryanchan/Documents/CITI case comp/油价预测模型/花旗杯/VIX.csv"
-report_path = "/Users/bryanchan/Documents/CITI case comp/油价预测模型/花旗杯/情绪分析报告.md"
+# VIX数据路径（替换为自身实际路径）
+vix_path = "{YOUR_BASE_DIR}/CITI_case_comp/oil_price_model/citi_cup/VIX.csv"
+# 报告输出路径（替换为自身实际路径）
+report_path = "{YOUR_BASE_DIR}/CITI_case_comp/oil_price_model/citi_cup/情绪分析报告.md"
 
-#我用的是豆包
-VOLC_API_KEY = "key"
-VOLC_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
-MODEL_ENDPOINT = "ep-key-xx"
+# 火山方舟LLM配置
+VOLC_API_KEY = "VOLC_API_KEY_PLACEHOLDER"  # 替换为自己的火山方舟API密钥
+VOLC_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"  # 若域名有个性化修改也需对应调整
+MODEL_ENDPOINT = "MODEL_ENDPOINT_PLACEHOLDER"  # 替换为自己的模型端点
 
 # ---------------------- 工具函数 ----------------------
 def get_emotion_score(text):
