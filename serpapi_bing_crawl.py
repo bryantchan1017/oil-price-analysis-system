@@ -4,15 +4,15 @@ from serpapi.exceptions import HTTPError
 import os  # 用于检查文件是否存在
 
 # 初始化Client（只需要一次）
-client = Client(api_key="1bac1711297ba43aa9684f19111e3fce92ec6c2e82420161a7af8e971234a57c")
+client = Client(api_key="YOUR_SERPAPI_API_KEY")
 
 # 定义输出CSV路径
-output_csv = "/Users/bryanchan/Desktop/student helper/AI跑完的data/bing.csv"
+output_csv = "/path/to/your/data/bing.csv"
 
 # 检查文件是否存在，不存在则写入表头
 file_exists = os.path.isfile(output_csv)
 
-with open("/Users/bryanchan/Desktop/student helper/AI跑完的data/1.csv", "r", encoding="utf-8-sig") as f_input, \
+with open("/path/to/your/data/1.csv", "r", encoding="utf-8-sig") as f_input, \
         open(output_csv, "a", encoding="utf-8-sig", newline="") as f_output:  # newline=""避免空行
 
     reader = csv.DictReader(f_input)
@@ -69,4 +69,4 @@ with open("/Users/bryanchan/Desktop/student helper/AI跑完的data/1.csv", "r", 
             print(f"第 {row_num} 行查询失败：{e}\n")
         except Exception as e:
             print(f"第 {row_num} 行发生未知错误：{e}\n")
-
+                
